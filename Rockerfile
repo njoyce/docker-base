@@ -1,0 +1,7 @@
+FROM gliderlabs/alpine:3.4
+
+RUN apk --update upgrade \
+  && apk add su-exec \
+  && rm /var/cache/apk/*
+
+TAG {{ .DockerImage }}:{{ .DockerTag }}
