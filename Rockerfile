@@ -1,7 +1,6 @@
-FROM gliderlabs/alpine:3.4
+FROM {{ .BaseImage }}
 
-RUN apk --update upgrade \
-  && apk add su-exec \
-  && rm /var/cache/apk/*
+RUN apk --update --no-cache upgrade \
+  && apk add su-exec
 
 TAG {{ .DockerImage }}:{{ .DockerTag }}
